@@ -51,33 +51,30 @@
     cursor: pointer;
 
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &button:focus {
+        background-color: red;
+    }
 }
 
 .modal__icon {
     fill: #000000;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.modal__button:hover,
-.modal__button:focus {
-    background-color: red;
+    .modal__button:hover &,
+    .modal__button:focus & {
+        fill: white
+    }
 }
-
-.modal__button:hover .modal__icon,
-.modal__button:focus .modal__icon {
-    fill: white
-}
-
 
 
 .modal__title {
     margin-bottom: 30px;
 
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 1.15;
+    @include font(700, 20px, 1.15, 0.03em);
+
     text-align: center;
-    letter-spacing: 0.03em;
 
     color: #212121;
 }
@@ -94,10 +91,9 @@
 .form__label {
     display: block;
     margin-bottom: 4px;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.01em;
 
+    @include font(null, 12px, 1.17, 0.01em);
+    
     color: #757575;
 }
 
@@ -113,14 +109,13 @@
     border-radius: 4px;
     outline: none;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.input-div__input:hover {
-    border-color: #2188f3;
-}
-
-.input-div__input:focus {
-    border-color: var(--accent-color);
+    &:hover {
+        border-color: #2188f3;
+    }
+    &:focus {
+        border-color: var(--accent-color);
+    }
 }
 
 .input-div__icon {
@@ -132,14 +127,13 @@
     fill: #212121;
 
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.input-div__input:hover+.input-div__icon {
-    fill: #2188f3;
-}
-
-.input-div__input:focus+.input-div__icon {
-    fill: var(--accent-color);
+    .input-div__input:hover + & {
+        fill: #2188f3;
+    }
+    .input-div__input:focus + & {
+        fill: var(--accent-color);
+    }
 }
 
 
@@ -158,42 +152,32 @@
     outline: none;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+    &:hover {
+        border-color: #2188f3;
+    }
+    
+    &:focus {
+        border-color: var(--accent-color);
+    }
+
 }
 
-.textarea-field textarea:hover {
-    border-color: #2188f3;
-}
-
-.textarea-field textarea:focus {
-    border-color: var(--accent-color);
-}
 
 .textarea-field textarea::placeholder {
-    font-size: 12px;
-    line-height: 1.67;
-    letter-spacing: 0.01em;
-
+    @include font(null, 12px, 1.67, 0.01em);
+    
     color: rgba(117, 117, 117, 0.5);
 
-}
+    &:hover {
+        color: #2188f3;
+    }
 
-.textarea-field textarea::placeholder:hover {
-    color: #2188f3;
 }
-
 
 .agreement-field {
     margin-bottom: 30px;
 }
 
-.agreement-field__input:checked+.agreement-field__check-text::before {
-    background-color: #2188f3;
-    background-image: url(../images/check-vector.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: none;
-}
 
 .agreement-field__check-text {
     display: flex;
@@ -207,6 +191,15 @@
     height: 15px;
     border: 2px solid #212121;
     margin-right: 7px;
+
+    .agreement-field__input:checked + & {
+        background-color: #2188f3;
+        background-image: url(../images/check-vector.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: none;
+    }
 }
 
 
@@ -242,10 +235,8 @@
     color: var(--white-text-color);
     background-color: var(--accent-color);
 
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.88;
-    letter-spacing: 0.06em;
+    @include font(700, 16px, 1.88, 0.06em);
+    
 
     border-radius: 4px;
     border: none;
@@ -253,10 +244,12 @@
     cursor: pointer;
 
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: var(--button-background-color);
+    }
 }
 
-.modal__send-button:hover,
-.modal__send-button:focus {
-    background-color: var(--button-background-color);
-}
+
 

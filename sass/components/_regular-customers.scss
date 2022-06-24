@@ -17,10 +17,9 @@
     height: 92px;
 }
 
-.rc__list .rc__item+.rc__item {
+.rc__list .rc__item + .rc__item {
     margin-left: 30px;
 }
-
 
 
 .rc__link {
@@ -35,20 +34,24 @@
     border-radius: 4px;
 
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        color: var(--accent-color);
+        border-color: var(--accent-color);
+    }
 }
 
-.rc__link:hover,
-.rc__link:focus {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-}
+
 
 .rc__icon {
     fill: currentColor;
+
+    .rc__link:hover &,
+    .rc__link:focus & {
+        fill: currentColor;
+    }
 }
 
-.rc__link:hover .rc__icon,
-.rc__link:focus .rc__icon {
-    fill: currentColor;
-}
+
 

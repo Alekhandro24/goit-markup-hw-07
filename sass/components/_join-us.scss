@@ -12,10 +12,8 @@
 .join-us h2 {
     margin-bottom: 20px;
 
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.03em;
+    @include font(700, 14px, 1.14, 0.03em);
+
     text-transform: uppercase;
 
     color: var(--white-text-color);
@@ -26,7 +24,7 @@
     height: 44px;
 }
 
-.join-us__list .join-us__item+.join-us__item {
+.join-us__list .join-us__item + .join-us__item {
     margin-left: 10px;
 }
 
@@ -41,13 +39,15 @@
     border-radius: 50%;
 
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: var(--accent-color);
+    }
 }
 
 .join-us__icon {
     fill: var(--join-us-icon-color);
 }
 
-.join-us__link:hover,
-.join-us__link:focus {
-    background-color: var(--accent-color);
-}
+
